@@ -7,10 +7,6 @@
 
     {!! Form::open(['url' => 'articles']) !!}
 
-    <!-- Temporariy fix -->
-
-    {!! Form::hidden('user_id', '1') !!}
-
     @include('articles.form',['submitButtonText'=>'Add Article'])
 
     {!! Form::close() !!}

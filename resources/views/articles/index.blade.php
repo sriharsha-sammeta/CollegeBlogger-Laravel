@@ -4,6 +4,7 @@
 
     <h1>Articles</h1>
     <hr/>
+    <a href={{ route('articles.create') }}>Create Article</a>
     @foreach($articles as $article)
 
         <article>

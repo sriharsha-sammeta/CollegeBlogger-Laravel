@@ -42,6 +42,10 @@ Route::get('articles/{id}/edit','ArticlesController@edit');*/
 |
 */
 
+Route::get('foo',['middleware'=>['web','auth','manager'],function(){
+    return "this page may only be viewed by managers";
+}]);
+
 Route::group(['middleware' => ['web']], function () {
     Route::resource('articles', 'ArticlesController');
 });
@@ -49,5 +53,5 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('home', 'HomeController@index');
 });
