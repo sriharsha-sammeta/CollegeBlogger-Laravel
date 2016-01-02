@@ -16,7 +16,7 @@ class ArticlesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth',['except'=>'index']);
+        $this->middleware('auth', ['except' => ['index','show']]);
     }
 
     /**
@@ -34,17 +34,11 @@ class ArticlesController extends Controller
     /**
      * show an article with given id
      *
-     * @param $id
+     * @param Article $article
      * @return View
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::find($id);
-        if (is_null($article)) {
-            Log::alert('article failed to fetch', ['id' => $id]);
-            abort(404);
-        }
-//        dd($article->published_at->diffForHumans());
         return view('articles.show', compact('article'));
     }
 
@@ -55,7 +49,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        if(Auth::guest()){
+        if (Auth::guest()) {
             return redirect()->route('articles.index');
         }
         return view('articles.create');
@@ -72,18 +66,18 @@ class ArticlesController extends Controller
         $article = new Article($request->all());
 
         Auth::user()->articles()->save($article);
+
         return redirect('articles');
     }
 
     /**
      * form for editing the article
      *
-     * @param $id
+     * @param Article $article
      * @return View
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::findOrFail($id);
         return view('articles.edit', compact('article'));
     }
 
@@ -91,13 +85,13 @@ class ArticlesController extends Controller
      * patch or update an existing article
      *
      * @param ArticleRequest $request
-     * @param $id
+     * @param Article $article
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ArticleRequest $request, $id)
+    public function update(Article $article, ArticleRequest $request)
     {
-        $article = Article::findOrFail($id);
         $article->update($request->all());
+
         return redirect()->route('articles.index');
     }   //
 }
