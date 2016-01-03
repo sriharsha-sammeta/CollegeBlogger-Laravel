@@ -1,2 +1,12 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import 'pages/home';
+
+body {
+  padding-top: 40px;
+  color: purple;
+}
+
+body,label, .checkbox label{
+  font-weight: 300;
+}
