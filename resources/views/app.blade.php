@@ -14,16 +14,8 @@
 <body>
 
 <div class="container">
-    @if(Session::has('flash_message'))
+    @include('flash::message')
 
-        <div class="alert alert-success {{ Session::has('flash_message_important')? 'alert-important' :'' }}">
-            @if(Session::has('flash_message_important'))
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            @endif
-            {{ session('flash_message') }}
-        </div>
-
-    @endif
     @yield('content')
 </div>
 
@@ -31,7 +23,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <script>
-    $('div.alert').not('.flash_message_important').delay(3000).slideUp(300);
+    $('div.alert').not('.alert_important').delay(3000).slideUp(300);
+</script>
+
+<!-- This is only necessary if you do Flash::overlay('...') -->
+<script>
+    $('#flash-overlay-modal').modal();
 </script>
 
 @yield('footer')

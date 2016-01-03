@@ -65,10 +65,11 @@ class ArticlesController extends Controller
     {
         Auth::user()->articles()->create($request->all());
 
-        return redirect('articles')->with([
-            "flash_message" => sprintf("A new article with title \"%s\" has been created", $request->all()['title']),
-            "flash_message_important" => true
-        ]);
+//        flash()->success(sprintf("A new article with title \"%s\" has been created", $request->all()['title']));
+
+        flash()->overlay(sprintf("A new article with title \"%s\" has been created", $request->all()['title']),"Good job !");
+
+        return redirect('articles');
     }
 
     /**
