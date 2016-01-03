@@ -65,11 +65,10 @@ class ArticlesController extends Controller
     {
         Auth::user()->articles()->create($request->all());
 
-        session()->flash(
-                "flash_message" , sprintf("A new article with title \"%s\" has been created", $request->all()['title'])
-            );
-
-        return redirect('articles');
+        return redirect('articles')->with([
+            "flash_message" => sprintf("A new article with title \"%s\" has been created", $request->all()['title']),
+            "flash_message_important" => true
+        ]);
     }
 
     /**
