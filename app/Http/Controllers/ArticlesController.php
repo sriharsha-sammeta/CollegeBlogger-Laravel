@@ -65,6 +65,8 @@ class ArticlesController extends Controller
     {
         Auth::user()->articles()->create($request->all());
 
+        \Session::flash("flash_message","A new article with title \"$request->all()['title']\" has been created");
+
         return redirect('articles');
     }
 
