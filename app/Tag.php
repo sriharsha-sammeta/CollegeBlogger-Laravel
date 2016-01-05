@@ -12,6 +12,17 @@ class Tag extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
+     
+     /**
+      *Fillable fields for a tag
+      * 
+      * @return Array
+      */
+     
+     protected $fillable = [
+        'name'
+    ];
+     
     public function articles(){
         return $this->belongsToMany('App\Article');
     }
