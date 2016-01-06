@@ -2,36 +2,33 @@
 
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <title>Document</title>
+        <meta charset="utf-8">
+        <title>Document</title>
 
-    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ elixir('css/all.css') }}">
-</head>
+        <link rel="stylesheet" type="text/css" href="{{ elixir('css/all.css') }}">
 
-<body>
+    </head>
 
-<div class="container">
-    @include('flash::message')
+    <body>
 
-    @yield('content')
-</div>
+        <div class="container">
+            @include('flash::message')
 
-<script src="//code.jquery.com/jquery.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            @yield('content')
+        </div>
 
-<script>
-    $('div.alert').not('.alert_important').delay(3000).slideUp(300);
-</script>
+        <script src="{{ elixir('js/all.js') }}"></script>
 
-<!-- This is only necessary if you do Flash::overlay('...') -->
-<script>
-    $('#flash-overlay-modal').modal();
-</script>
+        <script>
+            $('div.alert').not('.alert_important').delay(3000).slideUp(300);
 
-@yield('footer')
-</body>
+            <!-- This is only necessary if you do Flash::overlay('...') -->
+            $('#flash-overlay-modal').modal();
+        </script>
+
+        @yield('footer')
+    </body>
 
 </html>
