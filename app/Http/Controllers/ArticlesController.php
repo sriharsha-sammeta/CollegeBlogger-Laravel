@@ -33,6 +33,7 @@ class ArticlesController extends Controller
     {
 
         $articles = Article::latest('published_at')->published('<=')->get();
+        
         return view('articles.index', compact('articles'));
     }
 
