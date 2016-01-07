@@ -47,8 +47,10 @@ Route::get('foo',['middleware'=>['web','auth','manager'],function(){
     return "this page may only be viewed by managers";
 }]);
 
+
 Route::group(['middleware' => ['web']], function () {
     Route::resource('articles', 'ArticlesController');
+    Route::get('tags/{tags}','TagsController@show');
 });
 
 Route::group(['middleware' => 'web'], function () {
