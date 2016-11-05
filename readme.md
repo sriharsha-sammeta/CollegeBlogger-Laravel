@@ -1,5 +1,5 @@
-## CollegeInternshipsBlogger 
-The code for website and Services for mobile app of CollegeBlogger. 
+## College-Internships-Blogger 
+The code for website and Services for mobile app of CollegeInternshipsBlogger. 
 This website is used for college students to login, share internship opportunities, chat and blog. 
 
 we used Laravel framework extensively to build the services 
