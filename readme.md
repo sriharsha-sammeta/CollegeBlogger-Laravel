@@ -1,3 +1,9 @@
+## CollegeInternshipsBlogger 
+The code for website and Services for mobile app of CollegeBlogger. 
+This website is used for college students to login, share internship opportunities, chat and blog. 
+
+we used Laravel framework extensively to build the services 
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
